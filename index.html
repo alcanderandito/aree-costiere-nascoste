@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aree Costiere Nascoste</title>
   <style>
-    /* Corpo e sfondo animato */
+    /* Corpo & Sfondo Animato */
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: linear-gradient(135deg, #74ebd5, #acb6e5);
       animation: bgAnim 12s infinite alternate;
       overflow-y: auto;
@@ -20,19 +19,14 @@
       100% { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
     }
 
-    /* Header e testo animato */
+    /* Header Sticky */
     header {
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(0,0,0,0.6); color: #fff;
+      text-align: center; padding: 20px;
     }
     header h1 {
-      margin: 0;
-      font-size: 2em;
+      margin: 0; font-size: 2em;
       text-transform: uppercase;
       animation: textWarp 3s infinite alternate;
     }
@@ -40,28 +34,24 @@
       0%   { letter-spacing: 1px; transform: scale(1); }
       100% { letter-spacing: 6px; transform: scale(1.05); }
     }
+    header p {
+      margin: 5px 0 0; font-size: 1em;
+    }
 
-    /* Nav dinamico e pulsanti attivi */
+    /* Nav Dinamico */
     nav {
-      text-align: center;
-      padding: 10px;
+      position: sticky; top: 80px; z-index: 9;
       background: rgba(255,255,255,0.1);
-      position: sticky;
-      top: 70px;
-      z-index: 9;
+      text-align: center; padding: 10px 0;
     }
     nav button {
       position: relative;
-      margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      background: #ff9a9e;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
+      margin: 5px; padding: 10px 20px;
+      border: none; border-radius: 25px;
+      background: #ff9a9e; color: #fff;
+      font-weight: bold; cursor: pointer;
       overflow: hidden;
-      transition: transform 0.2s, background 0.3s;
+      transition: transform .2s, background .3s;
     }
     nav button.active {
       background: #fad0c4;
@@ -71,23 +61,18 @@
     nav button:hover {
       background: #ffe1e8;
     }
-    /* Ripple effect */
     nav button .ripple {
-      position: absolute;
-      border-radius: 50%;
+      position: absolute; border-radius: 50%;
       background: rgba(255,255,255,0.7);
       transform: scale(0);
-      animation: rippleAnim 0.6s linear;
+      animation: rippleAnim .6s linear;
       pointer-events: none;
     }
     @keyframes rippleAnim {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
+      to { transform: scale(4); opacity: 0; }
     }
 
-    /* Main e scroll-snap */
+    /* Main & Sezioni */
     main {
       padding: 20px;
       scroll-behavior: smooth;
@@ -95,37 +80,30 @@
     }
     main section {
       display: none;
+      max-width: 800px; margin: 20px auto;
+      padding: 20px; border-radius: 10px;
       background: rgba(255,255,255,0.9);
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 800px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
       scroll-snap-align: start;
     }
     main section.active {
       display: block;
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1; transform: translateY(0);
     }
-
-    /* Titoli di sezione */
     main section h2 {
-      margin-top: 0;
-      font-size: 1.8em;
-      color: #333;
+      margin-top: 0; font-size: 1.8em; color: #333;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
-    main section p {
-      line-height: 1.6;
-      color: #555;
+    main section p, main section ul {
+      color: #555; line-height: 1.6; margin: 10px 0;
     }
+    main section ul { padding-left: 20px; }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Aree Costiere Nascoste</h1>
     <p>Scopri spiagge uniche e villaggi remoti sulla costa pacifica del Nicaragua.</p>
@@ -143,44 +121,100 @@
   <main>
     <section id="mechapa">
       <h2>Playa Mechapa</h2>
-      <p>Informazioni complete su Playa Mechapa: storia, servizi, accessi, recensioni, mappe interattive e molto di più!</p>
+      <p>Playa Mechapa è un gioiello nascosto tra palme e scogliere.</p>
+      <ul>
+        <li>Accesso: strada sterrata di 3 km</li>
+        <li>Servizi: bar sulla spiaggia, docce e parcheggio</li>
+        <li>Attività: surf, snorkeling, kayak</li>
+        <li>Tranquillità: poche persone e privacy garantita</li>
+      </ul>
+      <p>Le piscine naturali formate dalle onde offrono tramonti mozzafiato.</p>
+      <p>Consigli: porta acqua e snack, non ci sono negozi vicini.</p>
     </section>
+
     <section id="jiquilillo">
       <h2>Jiquilillo</h2>
-      <p>Informazioni complete su Jiquilillo: natura, surf, villaggi, ristoranti tipici, trasporti e alloggi consigliati.</p>
+      <p>Jiquilillo è perfetta per chi cerca onde e relax.</p>
+      <ul>
+        <li>Corsi di surf con istruttori locali</li>
+        <li>Alloggi eco-friendly e ostelli</li>
+        <li>Mercati serali con prodotti freschi</li>
+        <li>Villaggio di pescatori autentico</li>
+      </ul>
+      <p>Il lungomare è costellato di bancarelle e piccoli bar.</p>
+      <p>Ottimo per tramonti indimenticabili e foto da urlo.</p>
     </section>
+
     <section id="aposentillo">
       <h2>Aposentillo</h2>
-      <p>Informazioni complete su Aposentillo: trekking, flora, fauna, spiagge selvagge e percorsi alternativi.</p>
+      <p>Aposentillo offre spiagge selvagge e percorsi di trekking.</p>
+      <ul>
+        <li>Percorso trekking fino a cascate nascoste</li>
+        <li>Noleggio bici e tour guidati</li>
+        <li>Flora e fauna tropicale</li>
+        <li>Zona ideale per birdwatching</li>
+      </ul>
+      <p>Portate lo zaino e preparatevi all’avventura off-road.</p>
+      <p>Meglio avere uno zaino impermeabile per guadi fangosi.</p>
     </section>
+
     <section id="miramar">
       <h2>Miramar</h2>
-      <p>Informazioni complete su Miramar: panorami, attività acquatiche, mercati locali, cultura e eventi tradizionali.</p>
+      <p>Miramar è un mix di cultura, spiaggia e divertimento.</p>
+      <ul>
+        <li>Tour in barca al tramonto</li>
+        <li>Mercatini artigianali locali</li>
+        <li>Festival e eventi tradizionali</li>
+        <li>Ristoranti di pesce a km 0</li>
+      </ul>
+      <p>Adatto a famiglie con bambini e gruppi di amici.</p>
+      <p>Non perdere la festa annuale delle lanterne galleggianti.</p>
     </section>
+
     <section id="eltransito">
       <h2>El Tránsito</h2>
-      <p>Informazioni complete su El Tránsito: mercati, artigianato, spiagge nascoste e curiosità storiche.</p>
+      <p>El Tránsito: spiagge tranquille e artigianato locale.</p>
+      <ul>
+        <li>Laboratori di ceramica e tessitura</li>
+        <li>Mercatini tradizionali e street food</li>
+        <li>Pontile panoramico al tramonto</li>
+        <li>Accesso facilitato con mezzi pubblici</li>
+      </ul>
+      <p>Scoprite storie e leggende raccontate dagli abitanti.</p>
+      <p>Perfetto per un weekend di relax culturale.</p>
     </section>
+
     <section id="escameca">
       <h2>Escameca</h2>
-      <p>Informazioni complete su Escameca: snorkeling, biodiversità marina, guide locali e percorsi fotografici.</p>
+      <p>Escameca è il paradiso dello snorkeling e immersioni.</p>
+      <ul>
+        <li>Barriera corallina ricca di pesci colorati</li>
+        <li>Guide subacquee esperte</li>
+        <li>Attrezzatura a noleggio sul posto</li>
+        <li>Biodiversità marina protetta</li>
+      </ul>
+      <p>Porta la tua maschera e scopri grotte sottomarine.</p>
+      <p>Prezzo immersione singola: circa 30 USD.</p>
     </section>
   </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const buttons = document.querySelectorAll('nav button');
+
+      // Attiva la prima sezione di default
+      buttons[0].classList.add('active');
+      document.getElementById(buttons[0].dataset.target).classList.add('active');
+
       buttons.forEach(btn => {
-        // Default attivo sul primo
-        if (!btn.parentNode.querySelector('button.active')) btn.classList.add('active');
         btn.addEventListener('click', e => {
-          // Ripple
+          // Ripple effect
           const circle = document.createElement('span');
           circle.className = 'ripple';
           const rect = btn.getBoundingClientRect();
           circle.style.width = circle.style.height = Math.max(rect.width, rect.height) + 'px';
           circle.style.left = e.clientX - rect.left - rect.width/2 + 'px';
-          circle.style.top = e.clientY - rect.top - rect.height/2 + 'px';
+          circle.style.top  = e.clientY - rect.top  - rect.height/2 + 'px';
           btn.appendChild(circle);
           setTimeout(() => circle.remove(), 600);
 
@@ -188,21 +222,15 @@
           buttons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
 
-          // Mostra sezione e scrolla
-          const id = btn.getAttribute('data-target');
-          document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
-          const target = document.getElementById(id);
-          if (target) {
-            target.classList.add('active');
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
+          // Toggle sezioni
+          document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+          const target = document.getElementById(btn.dataset.target);
+          target.classList.add('active');
+          target.scrollIntoView({ behavior: 'smooth' });
         });
       });
-
-      // Attiva la prima sezione iniziale
-      const first = document.querySelector('nav button.active').getAttribute('data-target');
-      document.getElementById(first).classList.add('active');
     });
   </script>
+
 </body>
 </html>
