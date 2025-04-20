@@ -3,16 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina Dinamica</title>
+  <title>Pagina Interattiva con Sfondo Animato</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #fafafa;
+      overflow: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
     header {
-      background-color: #2c3e50;
+      background-color: rgba(44, 62, 80, 0.85);
       color: white;
       text-align: center;
       padding: 20px;
@@ -47,9 +56,10 @@
   </style>
 </head>
 <body>
+  <canvas id="sfondo"></canvas>
   <header>
     <h1>Pagina Interattiva</h1>
-    <p>Questa è una semplice pagina interattiva e dinamica.</p>
+    <p>Questa è una semplice pagina interattiva con uno sfondo animato.</p>
   </header>
   <nav>
     <button onclick="mostraSezione('intro')">Intro</button>
@@ -71,12 +81,71 @@
     </section>
   </main>
   <script>
+    // Funzione per mostrare le sezioni
     function mostraSezione(id) {
       document.querySelectorAll('section').forEach(section => {
         section.classList.remove('active');
       });
       document.getElementById(id).classList.add('active');
     }
+
+    // Impostazione dell'animazione sullo sfondo
+    const canvas = document.getElementById("sfondo");
+    const ctx = canvas.getContext("2d");
+    const palline = [];
+    const numPalline = 50;
+
+    // Dimensioni iniziali
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Creazione delle palline
+    for (let i = 0; i < numPalline; i++) {
+      palline.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 20 + 5,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2
+      });
+    }
+
+    // Funzione di aggiornamento e disegno
+    function aggiornaSfondo() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const pallina of palline) {
+        // Muove le palline
+        pallina.x += pallina.dx;
+        pallina.y += pallina.dy;
+
+        // Rimbalzo ai bordi
+        if (pallina.x - pallina.r < 0 || pallina.x + pallina.r > canvas.width) {
+          pallina.dx *= -1;
+        }
+        if (pallina.y - pallina.r < 0 || pallina.y + pallina.r > canvas.height) {
+          pallina.dy *= -1;
+        }
+
+        // Disegna le palline
+        ctx.beginPath();
+        ctx.arc(pallina.x, pallina.y, pallina.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(52, 152, 219, 0.4)";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      requestAnimationFrame(aggiornaSfondo);
+    }
+
+    // Inizia l'animazione
+    aggiornaSfondo();
+
+    // Aggiorna il canvas quando cambia la dimensione della finestra
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
