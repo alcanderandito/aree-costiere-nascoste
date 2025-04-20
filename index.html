@@ -5,78 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aree Costiere Nascoste</title>
   <style>
+    /* Stili di base */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background-color: #f4f4f4;
     }
     header {
       background-color: #005f73;
       color: white;
-      padding: 20px;
+      text-align: center;
+      padding: 20px 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+    nav {
+      background-color: #0a9396;
+      padding: 10px;
       text-align: center;
     }
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
     nav button {
-      padding: 10px 20px;
-      background-color: #0a9396;
-      color: white;
-      border: none;
+      background-color: #ffffff;
+      color: #0a9396;
+      border: 2px solid #0a9396;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 4px;
       cursor: pointer;
+      font-size: 14px;
     }
     nav button:hover {
       background-color: #94d2bd;
     }
     main {
       padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .hidden {
+    section {
       display: none;
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    section.active {
+      display: block;
+    }
+    section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    section p {
+      margin: 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Aree Costiere Nascoste sul Pacifico del Nicaragua</h1>
-    <p>Esplora spiagge remote, villaggi incantevoli e attività uniche lungo la costa pacifica del Nicaragua.</p>
+    <h1>Aree Costiere Nascoste</h1>
+    <p>Scopri spiagge uniche e villaggi remoti lungo la costa pacifica del Nicaragua.</p>
   </header>
   <nav>
-    <ul>
-      <li><button onclick="mostraSezione('mechapa')">Playa Mechapa</button></li>
-      <li><button onclick="mostraSezione('jiquilillo')">Jiquilillo</button></li>
-      <li><button onclick="mostraSezione('aposentillo')">Aposentillo</button></li>
-      <li><button onclick="mostraSezione('miramar')">Miramar</button></li>
-      <li><button onclick="mostraSezione('eltransito')">El Tránsito</button></li>
-      <li><button onclick="mostraSezione('escameca')">Escameca</button></li>
-    </ul>
+    <button onclick="mostraSezione('mechapa')">Playa Mechapa</button>
+    <button onclick="mostraSezione('jiquilillo')">Jiquilillo</button>
+    <button onclick="mostraSezione('aposentillo')">Aposentillo</button>
+    <button onclick="mostraSezione('miramar')">Miramar</button>
+    <button onclick="mostraSezione('eltransito')">El Tránsito</button>
+    <button onclick="mostraSezione('escameca')">Escameca</button>
   </nav>
   <main>
-    <section id="mechapa" class="hidden">
+    <section id="mechapa" class="active">
       <h2>Playa Mechapa</h2>
-      <p>Questa è una descrizione della Playa Mechapa...</p>
+      <p>Playa Mechapa è una spiaggia remota con paesaggi mozzafiato e tramonti spettacolari. Ideale per chi cerca tranquillità e bellezze naturali.</p>
     </section>
-    <section id="jiquilillo" class="hidden">
+    <section id="jiquilillo">
       <h2>Jiquilillo</h2>
-      <p>Questa è una descrizione della spiaggia di Jiquilillo...</p>
+      <p>Una lunga spiaggia selvaggia, perfetta per il surf e il relax. Con una comunità locale amichevole, Jiquilillo offre un'esperienza autentica e semplice.</p>
     </section>
-    <!-- Aggiungi altre sezioni qui -->
+    <section id="aposentillo">
+      <h2>Aposentillo</h2>
+      <p>Aposentillo è un paradiso per surfisti di tutti i livelli, con onde costanti e una comunità accogliente. Una meta tranquilla per una fuga al mare.</p>
+    </section>
+    <section id="miramar">
+      <h2>Miramar</h2>
+      <p>Miramar è un villaggio di pescatori con una delle migliori onde per il surf in Nicaragua. Con viste spettacolari, è una gemma nascosta da scoprire.</p>
+    </section>
+    <section id="eltransito">
+      <h2>El Tránsito</h2>
+      <p>El Tránsito offre un mix di relax e avventura. Piscine naturali tra le rocce e una piccola comunità rendono questa spiaggia una meta unica.</p>
+    </section>
+    <section id="escameca">
+      <h2>Escameca</h2>
+      <p>Con acque cristalline e spiagge dorate, Escameca è un paradiso tropicale. Un luogo perfetto per chi cerca pace e bellezze naturali.</p>
+    </section>
   </main>
   <script>
+    // Funzione per mostrare la sezione corrispondente
     function mostraSezione(id) {
       // Nasconde tutte le sezioni
-      document.querySelectorAll('main > section').forEach(sezione => {
-        sezione.classList.add('hidden');
+      document.querySelectorAll('section').forEach(sezione => {
+        sezione.classList.remove('active');
       });
-
-      // Mostra la sezione con l'ID corrispondente
-      document.getElementById(id).classList.remove('hidden');
+      // Mostra la sezione scelta
+      const sezioneScelta = document.getElementById(id);
+      if (sezioneScelta) {
+        sezioneScelta.classList.add('active');
+      }
     }
   </script>
 </body>
