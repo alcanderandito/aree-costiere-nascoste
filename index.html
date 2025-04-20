@@ -5,101 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aree Costiere Nascoste</title>
   <style>
-    /* Corpo & Sfondo Animato */
     body {
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      margin:0; padding:0;
+      background: linear-gradient(135deg,#74ebd5,#acb6e5);
       animation: bgAnim 12s infinite alternate;
-      overflow-y: auto;
+      overflow-y:auto;
     }
     @keyframes bgAnim {
-      0%   { background: linear-gradient(135deg, #74ebd5, #acb6e5); }
-      50%  { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
-      100% { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+      0%   {background:linear-gradient(135deg,#74ebd5,#acb6e5)}
+      50%  {background:linear-gradient(135deg,#ff9a9e,#fad0c4)}
+      100% {background:linear-gradient(135deg,#fbc2eb,#a6c1ee)}
     }
-
-    /* Header Sticky */
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(0,0,0,0.6); color: #fff;
-      text-align: center; padding: 20px;
+      position:sticky;top:0;z-index:10;
+      background:rgba(0,0,0,0.6);color:#fff;
+      text-align:center;padding:20px;
     }
     header h1 {
-      margin: 0; font-size: 2em;
-      text-transform: uppercase;
-      animation: textWarp 3s infinite alternate;
+      margin:0;font-size:2em;
+      text-transform:uppercase;
+      animation:textWarp 3s infinite alternate;
     }
     @keyframes textWarp {
-      0%   { letter-spacing: 1px; transform: scale(1); }
-      100% { letter-spacing: 6px; transform: scale(1.05); }
+      0%   {letter-spacing:1px;transform:scale(1)}
+      100% {letter-spacing:6px;transform:scale(1.05)}
     }
-    header p { margin: 5px 0 0; font-size: 1em; }
+    header p {margin:5px 0 0;font-size:1em}
 
-    /* Nav Dinamico & Ripple */
     nav {
-      position: sticky; top: 80px; z-index: 9;
-      background: rgba(255,255,255,0.1);
-      text-align: center; padding: 10px 0;
+      position:sticky;top:80px;z-index:9;
+      background:rgba(255,255,255,0.1);
+      text-align:center;padding:10px 0;
     }
     nav button {
-      position: relative;
-      margin: 5px; padding: 10px 20px;
-      border: none; border-radius: 25px;
-      background: #ff9a9e; color: #fff;
-      font-weight: bold; cursor: pointer;
-      overflow: hidden;
-      transition: transform .2s, background .3s;
+      position:relative;
+      margin:5px;padding:10px 20px;
+      border:none;border-radius:25px;
+      background:#ff9a9e;color:#fff;
+      font-weight:bold;cursor:pointer;
+      overflow:hidden;
+      transition:transform .2s,background .3s;
     }
     nav button.active {
-      background: #fad0c4;
-      transform: scale(1.2);
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      background:#fad0c4;
+      transform:scale(1.2);
+      box-shadow:0 0 10px rgba(0,0,0,0.3);
     }
-    nav button:hover { background: #ffe1e8; }
+    nav button:hover {background:#ffe1e8}
     nav button .ripple {
-      position: absolute; border-radius: 50%;
-      background: rgba(255,255,255,0.7);
-      transform: scale(0);
-      animation: rippleAnim .6s linear;
-      pointer-events: none;
+      position:absolute;border-radius:50%;
+      background:rgba(255,255,255,0.7);
+      transform:scale(0);
+      animation:rippleAnim .6s linear;
+      pointer-events:none;
     }
     @keyframes rippleAnim {
-      to { transform: scale(4); opacity: 0; }
+      to {transform:scale(4);opacity:0}
     }
 
-    /* Main & Sezioni Dinamiche */
     main {
-      padding: 20px;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+      padding:20px;
+      scroll-behavior:smooth;
+      scroll-snap-type:y mandatory;
     }
     main section {
-      display: none;
-      max-width: 800px; margin: 20px auto;
-      padding: 20px; border-radius: 10px;
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      opacity: 0; transform: translateY(30px);
-      transition: opacity .6s ease, transform .6s ease;
-      scroll-snap-align: start;
+      display:none;
+      max-width:800px;margin:20px auto;
+      padding:20px;border-radius:10px;
+      background:rgba(255,255,255,0.9);
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      opacity:0;transform:translateY(30px);
+      transition:opacity .6s ease,transform .6s ease;
+      scroll-snap-align:start;
     }
     main section.active {
-      display: block;
-      opacity: 1; transform: translateY(0);
+      display:block;
+      opacity:1;transform:translateY(0);
     }
     main section h2 {
-      margin-top: 0; font-size: 1.8em; color: #333;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      margin-top:0;font-size:1.8em;color:#333;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.1);
     }
     main section h3 {
-      margin: 15px 0 5px; font-size: 1.2em; color: #444;
+      margin:15px 0 5px;font-size:1.2em;color:#444;
     }
     main section p, main section ul {
-      color: #555; line-height: 1.6; margin: 5px 0;
+      color:#555;line-height:1.6;margin:5px 0;
     }
-    main section ul { padding-left: 20px; }
-    main section ul li { margin-bottom: 4px; }
+    main section ul {padding-left:20px}
+    main section ul li {margin-bottom:4px}
   </style>
 </head>
 <body>
@@ -113,87 +108,233 @@
   <main></main>
 
   <script>
-    // ↓↓↓ METTI QUI TUTTO IL TESTO DELLA TUA RICERCA ↓↓↓
-    const locationsData = [
-      {
-        id: 'mechapa',
-        title: 'Playa Mechapa',
-        description: 'Playa Mechapa è un gioiello nascosto tra palme e scogliere.',
-        lodging: 'Alloggi: Hotel Mechapa Beach, B&B Costa Verde.',
-        activities: 'Attività: surf, snorkeling, kayak e yoga al tramonto.',
-        distance: 'Distanza: 3 km dalla strada principale, 25 km da Managua.',
-        sources: ['https://esempio.com/mechapa', 'https://nicaragua.travel/mechapa']
-      },
-      {
-        id: 'jiquilillo',
-        title: 'Jiquilillo',
-        description: 'Jiquilillo è il paradiso dei surfisti e degli amanti della natura.',
-        lodging: 'Alloggi: Jiquilillo Surf Lodge, Cabinas El Pescador.',
-        activities: 'Attività: lezioni di surf, escursioni alle mangrovie.',
-        distance: 'Distanza: 40 km da Chinandega, accesso su strada asfaltata.',
-        sources: ['https://esempio.com/jiquilillo']
-      },
-      // … aggiungi gli altri 4 con lo stesso schema!
-    ];
+    // １) Qui dentro c’è tutta la tua ricerca, DIVISA per id di sezione:
+    const research = {
+      mechapa: `
+        <h3>Ambiente e Natura</h3>
+        <p>Playa Mechapa è una spiaggia remota nel nord-ovest del Nicaragua, ai margini della Riserva Naturale Estero Padre Ramos. Oltre 2 km di litorale vulcanico nero-beige, palme, foresta secca tropicale, tramonti spettacolari. Onde per surfisti e nuotatori tiepidi tutto l’anno. Estuario con delfini, tartarughe marine e uccelli acquatici.</p>
+        <h3>Accessibilità</h3>
+        <p>3 h di auto da Managua, 1 h da Chinandega; ultimo tratto sterrato, consigliato 4×4. Autobus locale + taxi collettivi, ma servizi sporadici. Fate scorte in città.</p>
+        <h3>Atmosfera</h3>
+        <p>Villaggio di pescatori quasi fuori dal tempo, spiaggia deserta, falò, cieli stellati e romanticismo selvaggio. “Selvaggia bellezza incontaminata”.</p>
+        <h3>Alloggi</h3>
+        <ul>
+          <li><strong>Redwood Beach Resort</strong> – Eco-resort fronte mare, cabanas in legno, veranda con amaca. 100–120 USD a notte. <a href="http://redwoodbeachresort.info" target="_blank">redwoodbeachresort.info</a></li>
+          <li><strong>Hotel Mechapa</strong> – Guesthouse locale, camere semplici, tariffe <40 USD.</li>
+          <li><strong>Airbnb/Casitas</strong> – Casa Blanca, Casa de Don Chico: 15–20 USD/persona.</li>
+        </ul>
+        <h3>Attività</h3>
+        <ul>
+          <li>Surf (spot mondiali), noleggio tavole</li>
+          <li>Pesca tradizionale in panga o acquisto e cena al lodge</li>
+          <li>Tour in kayak nell’estuario di Padre Ramos</li>
+          <li>Passeggiate a cavallo al tramonto</li>
+          <li>Escursioni al vulcano Cosigüina (1.5–2 h di cammino)</li>
+          <li>Birdwatching: fregate, martin pescatori, scimmie urlatrici</li>
+        </ul>
+        <h3>Sicurezza e Salute</h3>
+        <p>Tranquillo e sicuro; nessun inquinamento luminoso. Attenzione alle correnti di risacca. Kit di primo soccorso e protezione solare consigliati. Ospedale a Chinandega (~1h30).</p>
+        <h3>Note Culturali</h3>
+        <p>Villaggio di pescatori e contrabbandieri storici. Vicina la Basilica de El Viejo (XVII sec.).</p>
+      `,
+      jiquilillo: `
+        <h3>Ambiente e Natura</h3>
+        <p>Jiquilillo: arenile selvaggio di sabbia vulcanica grigia, vulcani all’orizzonte (San Cristóbal, Cosigüina), riserva di Padre Ramos dietro le mangrovie, clima caldo soleggiato con brevi piogge.</p>
+        <h3>Accessibilità</h3>
+        <p>40–50 min da Chinandega su asfalto + sterrato. Autobus locale dal mercato municipale (1.5 h). Taxi/navette da ostelli.</p>
+        <h3>Atmosfera</h3>
+        <p>Pueblo di pescatori, atmosfera internazionale da backpacker, amache, chitarre, zaino-in-spalla. Tramonti con cavalli sulla riva.</p>
+        <h3>Alloggi</h3>
+        <ul>
+          <li><strong>Rancho Esperanza</strong> – Ostello eco-sostenibile, dormitorio 10 USD, cabana 25 USD. <a href="http://rancho-esperanza.com" target="_blank">rancho-esperanza.com</a></li>
+          <li><strong>Monty’s Beach Lodge</strong> – Eco-lodge, cabanas, piscina. 40–50 USD.</li>
+          <li><strong>Hotelito Jiquilillo</strong> – Guesthouse familiare, 30–35 USD.</li>
+          <li><strong>Coco Loco Eco-Resort</strong> – Surf & Yoga retreat (anche Aposentillo), bungalow, pacchetti.</li>
+        </ul>
+        <h3>Attività</h3>
+        <ul>
+          <li>Surf: onde centrali per principianti, “The Boom” per esperti (10 min in bici)</li>
+          <li>Kayak tra le mangrovie</li>
+          <li>Volontariato (insegnamento, orti, riciclaggio)</li>
+          <li>Pesca tradizionale e cucina locale</li>
+          <li>Escursioni al Cosigüina in pick‑up</li>
+          <li>Rilascio tartarughe (set‑nov, con ONG)</li>
+        </ul>
+        <h3>Sicurezza e Salute</h3>
+        <p>Basso tasso di criminalità, attenzione agli oggetti in spiaggia. Correnti di risacca in “The Boom”. Repellente e protezione solare consigliati. Ospedale a Chinandega (~1h).</p>
+        <h3>Note Culturali</h3>
+        <p>Turismo responsabile: Rancho Esperanza reinveste in biblioteca e centro giovani. Chiesa cattolica modesta, processioni la domenica.</p>
+      `,
+      aposentillo: `
+        <h3>Ambiente e Natura</h3>
+        <p>Aposentillo (Playa Santa María del Mar): mezzaluna di sabbia dorata, affioramenti rocciosi, palme fino all’acqua, onde gentili per surf beginner/intermediate.</p>
+        <h3>Accessibilità</h3>
+        <p>40 min da Chinandega su strada sterrata; autobus fino all’incrocio + mototaxi/auto stop ultimi 3 km; transfer organizzati (~30–50 USD).</p>
+        <h3>Atmosfera</h3>
+        <p>Surf lodge e casitas sparse, amache, yoga, falò, comunità surfista-segreta. Ritmo lento e romantico.</p>
+        <h3>Alloggi</h3>
+        <ul>
+          <li><strong>Thunderbomb Surf Camp</strong> – Boutique surf camp, piscina, premium (~150–200 USD)</li>
+          <li><strong>Tapas & Surf</strong> – Hotel boutique, tapas, surf, yoga (~80–100 USD)</li>
+          <li><strong>Amaru Wellness Resort</strong> – Resort olistico su scogliera (~150 USD)</li>
+          <li><strong>Chancletas Beach Resort</strong> – Surf lodge storico (~70–90 USD)</li>
+          <li>Homestay: Casa de Noah, La Casita de Don Ramón (~15 USD)</li>
+        </ul>
+        <h3>Attività</h3>
+        <ul>
+          <li>Surf: beginner su Nahualapa, “The Boom” per esperti</li>
+          <li>Paddleboard, snorkeling</li>
+          <li>Horseback riding al tramonto</li>
+          <li>Yoga & massaggi oceanici</li>
+          <li>Tour culturali e volontariato</li>
+          <li>Birdwatching al Río Aserradores</li>
+          <li>Rilascio tartarughe (stagionale)</li>
+        </ul>
+        <h3>Sicurezza e Salute</h3>
+        <p>Bassa criminalità, correnti al fiume, kit pronto soccorso, repellenti, ospedale a El Viejo/Chinandega (~1h).</p>
+        <h3>Note Culturali</h3>
+        <p>Pesca con chinchorro, mercati settimanali, memoria storica del Mitch e colonie Chorotega.</p>
+      `,
+      miramar: `
+        <h3>Ambiente e Natura</h3>
+        <p>Miramar (Leon): scogliere vulcaniche, sabbia nera, surf break “Punta Miramar”, piscine naturali, venti offshore stabili, vista Momotombo.</p>
+        <h3>Accessibilità</h3>
+        <p>70 km da Managua, 40 km da León; strada secondaria parzialmente asfaltata/ster­rata; minibus Managua→Nagarote + bus rurale→Miramar, taxi privati (~25 USD).</p>
+        <h3>Atmosfera</h3>
+        <p>Mistura di villaggio di pescatori e surf vibe internazionale, community integrata, pace dopo il tramonto, piccoli eventi surf.</p>
+        <h3>Alloggi</h3>
+        <ul>
+          <li><strong>Miramar Surf Camp</strong> – 13 camere, Wi‑Fi, coworking, pacchetti surf. Dormitorio 15 USD, private 50–70 USD, bungalow 145 USD.</li>
+          <li><strong>Sirena del Mar</strong> – Guesthouse 10 USD, cucina casalinga.</li>
+          <li><strong>Puerto Sandino Surf House</strong> – 20–30 USD, barca per Puerto Sandino.</li>
+        </ul>
+        <h3>Attività</h3>
+        <ul>
+          <li>Surf: Punta Miramar, Shifty’s, Shacks, Puerto Sandino (boat trips)</li>
+          <li>Pesca sportiva e gite in barca</li>
+          <li>Snorkeling in piscine rocciose</li>
+          <li>Escursioni a León, Cerro Negro, Telica</li>
+          <li>Volontariato e beach‑cleaning</li>
+        </ul>
+        <h3>Sicurezza e Salute</h3>
+        <p>Praticamente zero criminalità; attenzione a reef e correnti; ospedale a León (~1h); repellenti, kit pronto soccorso, lycra per surf.</p>
+        <h3>Note Culturali</h3>
+        <p>Storia sandinista, quesillo di Nagarote, festa patronale San Pedro, ricerca marina e protezione eco‑surf.</p>
+      `,
+      eltransito: `
+        <h3>Ambiente e Natura</h3>
+        <p>El Tránsito (Nagarote): sabbia vulcanica scura, piscine naturali, dry forest, surf break point e beach break, avvistamenti di pellicani e balene.</p>
+        <h3>Accessibilità</h3>
+        <p>60 km da Managua, 50 km da León; strada asfaltata+ster­rata; autobus da Nagarote (1.5 h) o taxi/navette (~30–40 USD).</p>
+        <h3>Atmosfera</h3>
+        <p>Mix tra villaggio tradizionale e scena boho‑surfista, ostelli con eventi comunitari, jam in spiaggia, falò e yoga.</p>
+        <h3>Alloggi</h3>
+        <ul>
+          <li><strong>Free Spirit Hostel</strong> – Dormitorio 12 USD, private 30 USD, piscine, area comune, cena comunitaria.</li>
+          <li><strong>SOLID Surf Camp</strong> – Dormitori da 15 USD, pacchetti surf+volontariato.</li>
+          <li><strong>Palapa Hostel</strong> – Eco‑lodge naturista 10–15 USD.</li>
+          <li><strong>Nimbu Beach Hotel</strong> – Private 40–50 USD.</li>
+          <li><strong>Backpackers Inn</strong> – B&B familiare 25 USD (colazione incl.).</li>
+        </ul>
+        <h3>Attività</h3>
+        <ul>
+          <li>Surf: point break “La Punta”, beach‑break, Dos Ahogados, Puerto Sandino</li>
+          <li>Yoga, benessere e massaggi</li>
+          <li>Volontariato, pulizia spiagge, progetti sociali</li>
+          <li>Escursioni: trekking vulcani e città coloniali</li>
+        </ul>
+        <h3>Sicurezza e Salute</h3>
+        <p>Strutture con kit pronto soccorso, ospedale a León (~1h); repellenti, protezione solare e scarpette da reef consigliate.</p>
+        <h3>Note Culturali</h3>
+        <p>Turismo comunitario, skatepark, incontri culturali in ostello, processioni e tradizioni marinare.</p>
+      `,
+      escameca: `
+        <h3>Ambiente e Natura</h3>
+        <p>Playa Escameca & El Ostional: sabbia dorata, foresta secca, mangrovie, tartarughe olivacee in nidificazione (lug–dic), fauna marina e terrestre protetta.</p>
+        <h3>Accessibilità</h3>
+        <p>30 km da San Juan del Sur; 4×4 consigliato su sterrato; boat taxi costoso; trasporto privato (~40–50 USD); zero servizi in loco.</p>
+        <h3>Atmosfera</h3>
+        <p>Borgo di pescatori ultrariservato, spiritualità tropicale, yoga all’alba, cielo stellato, schiusa tartarughe, digital detox.</p>
+        <h3>Alloggi</h3>
+        <ul>
+          <li><strong>Manta Raya Hospedaje</strong> – 30–40 USD, camere con veranda, colazione su richiesta.</li>
+          <li><strong>Costa Dulce Eco-Lodge</strong> – Bungalow 150–250 USD, ristorante farm‑to‑table, yoga deck, spa.</li>
+          <li><strong>La Veranera</strong> – B&B Playa El Coco 80–100 USD (vicino).</li>
+          <li>Camping selvaggio (permessi in loco).</li>
+        </ul>
+        <h3>Attività</h3>
+        <ul>
+          <li>Osservazione tartarughe (La Flor arribadas & hatching)</li>
+          <li>Surf e snorkeling su reef semi‑deserti</li>
+          <li>Pesca d’altura con locali</li>
+          <li>Trekking costiero (Ostional→La Flor)</li>
+          <li>Yoga, massaggi e retreat</li>
+          <li>Volontariato con ranger e comunità</li>
+        </ul>
+        <h3>Sicurezza e Salute</h3>
+        <p>Comunità protettiva, correnti in La Flor, ospedale a San Juan/ Rivas (1–1.5 h), repellenti, kit pronto soccorso, no guida di notte.</p>
+        <h3>Note Culturali</h3>
+        <p>Transizione da raccolta uova a conservazione, memoria del Mitch, turismo comunitario in sviluppo, confine immaginario con CR.</p>
+      `
+    };
+
+    // ２) Genera automaticamente NAV e SECTIONS in base a research:
+    const locations = Object.keys(research).map(id => ({
+      id,
+      title: document.createElement('template')
+        .innerHTML = research[id].match(/<h3>(.*?)<\/h3>/)?.[1] 
+          ? research[id].match(/<h3>(.*?)<\/h3>/)[1]
+          : id
+    }));
 
     document.addEventListener('DOMContentLoaded', () => {
       const nav  = document.querySelector('nav');
       const main = document.querySelector('main');
 
-      // Costruisci i bottoni e le sezioni
-      locationsData.forEach(loc => {
-        // NAV BUTTON
+      // Costruisci NAV e SEZIONI
+      Object.entries(research).forEach(([id, html]) => {
+        // Button
         const btn = document.createElement('button');
-        btn.dataset.target = loc.id;
-        btn.textContent = loc.title;
+        btn.dataset.target = id;
+        btn.textContent = html.match(/<h3>(.*?)<\/h3>/)?.[1] || id;
         nav.appendChild(btn);
-
-        // SECTION CONTENT
+        // Section
         const sec = document.createElement('section');
-        sec.id = loc.id;
-        sec.innerHTML = `
-          <h2>${loc.title}</h2>
-          <p>${loc.description}</p>
-          <h3>Alloggi</h3><p>${loc.lodging}</p>
-          <h3>Attività</h3><p>${loc.activities}</p>
-          <h3>Distanza</h3><p>${loc.distance}</p>
-          <h3>Fonti</h3>
-          <ul>${loc.sources.map(url => `<li><a href="${url}" target="_blank">${url}</a></li>`).join('')}</ul>
-        `;
+        sec.id = id;
+        sec.innerHTML = `<h2>${btn.textContent}</h2>${html}`;
         main.appendChild(sec);
       });
 
       const buttons = Array.from(nav.querySelectorAll('button'));
-      // Attiva la prima sezione di default
+      // Attiva la prima di default
       buttons[0].classList.add('active');
       document.getElementById(buttons[0].dataset.target).classList.add('active');
 
-      // Gestione click + ripple + animazioni
+      // Click handlers con ripple & scroll
       buttons.forEach(btn => {
         btn.addEventListener('click', e => {
-          // RIPPLE
+          // Ripple
           const circle = document.createElement('span');
           circle.className = 'ripple';
           const r = btn.getBoundingClientRect();
-          circle.style.width = circle.style.height = Math.max(r.width, r.height)+'px';
+          circle.style.width = circle.style.height = Math.max(r.width,r.height)+'px';
           circle.style.left = e.clientX - r.left - r.width/2 + 'px';
           circle.style.top  = e.clientY - r.top  - r.height/2 + 'px';
           btn.appendChild(circle);
-          setTimeout(()=> circle.remove(), 600);
+          setTimeout(()=> circle.remove(),600);
 
           // Toggle active sui bottoni
           buttons.forEach(b=>b.classList.remove('active'));
           btn.classList.add('active');
 
-          // Toggle sezioni
+          // Toggle sezioni & scroll
           document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
-          const target = document.getElementById(btn.dataset.target);
-          target.classList.add('active');
-          target.scrollIntoView({ behavior: 'smooth' });
+          const tgt = document.getElementById(btn.dataset.target);
+          tgt.classList.add('active');
+          tgt.scrollIntoView({behavior:'smooth'});
         });
       });
     });
   </script>
-
 </body>
 </html>
