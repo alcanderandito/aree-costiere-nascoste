@@ -3,123 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aree Costiere Nascoste</title>
+  <title>Pagina Dinamica</title>
   <style>
-    /* Stili di base */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #fafafa;
     }
     header {
-      background-color: #005f73;
+      background-color: #2c3e50;
       color: white;
       text-align: center;
-      padding: 20px 0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 14px;
+      padding: 20px;
     }
     nav {
-      background-color: #0a9396;
-      padding: 10px;
       text-align: center;
+      margin: 10px 0;
     }
     nav button {
-      background-color: #ffffff;
-      color: #0a9396;
-      border: 2px solid #0a9396;
-      padding: 10px 15px;
       margin: 5px;
-      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
-      font-size: 14px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
     }
     nav button:hover {
-      background-color: #94d2bd;
+      background-color: #2980b9;
     }
     main {
       padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
+      text-align: center;
     }
     section {
       display: none;
-      background: white;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     section.active {
       display: block;
-    }
-    section h2 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-    section p {
-      margin: 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Aree Costiere Nascoste</h1>
-    <p>Scopri spiagge uniche e villaggi remoti lungo la costa pacifica del Nicaragua.</p>
+    <h1>Pagina Interattiva</h1>
+    <p>Questa è una semplice pagina interattiva e dinamica.</p>
   </header>
   <nav>
-    <button onclick="mostraSezione('mechapa')">Playa Mechapa</button>
-    <button onclick="mostraSezione('jiquilillo')">Jiquilillo</button>
-    <button onclick="mostraSezione('aposentillo')">Aposentillo</button>
-    <button onclick="mostraSezione('miramar')">Miramar</button>
-    <button onclick="mostraSezione('eltransito')">El Tránsito</button>
-    <button onclick="mostraSezione('escameca')">Escameca</button>
+    <button onclick="mostraSezione('intro')">Intro</button>
+    <button onclick="mostraSezione('info')">Info</button>
+    <button onclick="mostraSezione('contatti')">Contatti</button>
   </nav>
   <main>
-    <section id="mechapa" class="active">
-      <h2>Playa Mechapa</h2>
-      <p>Playa Mechapa è una spiaggia remota con paesaggi mozzafiato e tramonti spettacolari. Ideale per chi cerca tranquillità e bellezze naturali.</p>
+    <section id="intro" class="active">
+      <h2>Benvenuto</h2>
+      <p>Questa è la sezione introduttiva. Clicca su un pulsante sopra per cambiare sezione.</p>
     </section>
-    <section id="jiquilillo">
-      <h2>Jiquilillo</h2>
-      <p>Una lunga spiaggia selvaggia, perfetta per il surf e il relax. Con una comunità locale amichevole, Jiquilillo offre un'esperienza autentica e semplice.</p>
+    <section id="info">
+      <h2>Informazioni</h2>
+      <p>In questa sezione trovi informazioni utili sul nostro progetto.</p>
     </section>
-    <section id="aposentillo">
-      <h2>Aposentillo</h2>
-      <p>Aposentillo è un paradiso per surfisti di tutti i livelli, con onde costanti e una comunità accogliente. Una meta tranquilla per una fuga al mare.</p>
-    </section>
-    <section id="miramar">
-      <h2>Miramar</h2>
-      <p>Miramar è un villaggio di pescatori con una delle migliori onde per il surf in Nicaragua. Con viste spettacolari, è una gemma nascosta da scoprire.</p>
-    </section>
-    <section id="eltransito">
-      <h2>El Tránsito</h2>
-      <p>El Tránsito offre un mix di relax e avventura. Piscine naturali tra le rocce e una piccola comunità rendono questa spiaggia una meta unica.</p>
-    </section>
-    <section id="escameca">
-      <h2>Escameca</h2>
-      <p>Con acque cristalline e spiagge dorate, Escameca è un paradiso tropicale. Un luogo perfetto per chi cerca pace e bellezze naturali.</p>
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <p>Puoi contattarci tramite email o telefono per ulteriori dettagli.</p>
     </section>
   </main>
   <script>
-    // Funzione per mostrare la sezione corrispondente
     function mostraSezione(id) {
-      // Nasconde tutte le sezioni
-      document.querySelectorAll('section').forEach(sezione => {
-        sezione.classList.remove('active');
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
       });
-      // Mostra la sezione scelta
-      const sezioneScelta = document.getElementById(id);
-      if (sezioneScelta) {
-        sezioneScelta.classList.add('active');
-      }
+      document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
