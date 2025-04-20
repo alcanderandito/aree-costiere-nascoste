@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aree Costiere Nascoste</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #005f73;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    nav button {
+      padding: 10px 20px;
+      background-color: #0a9396;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background-color: #94d2bd;
+    }
+    main {
+      padding: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aree Costiere Nascoste sul Pacifico del Nicaragua</h1>
+    <p>Esplora spiagge remote, villaggi incantevoli e attività uniche lungo la costa pacifica del Nicaragua.</p>
+  </header>
+  <nav>
+    <ul>
+      <li><button onclick="mostraSezione('mechapa')">Playa Mechapa</button></li>
+      <li><button onclick="mostraSezione('jiquilillo')">Jiquilillo</button></li>
+      <li><button onclick="mostraSezione('aposentillo')">Aposentillo</button></li>
+      <li><button onclick="mostraSezione('miramar')">Miramar</button></li>
+      <li><button onclick="mostraSezione('eltransito')">El Tránsito</button></li>
+      <li><button onclick="mostraSezione('escameca')">Escameca</button></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="mechapa" class="hidden">
+      <h2>Playa Mechapa</h2>
+      <p>Questa è una descrizione della Playa Mechapa...</p>
+    </section>
+    <section id="jiquilillo" class="hidden">
+      <h2>Jiquilillo</h2>
+      <p>Questa è una descrizione della spiaggia di Jiquilillo...</p>
+    </section>
+    <!-- Altre sezioni possono essere aggiunte qui -->
+  </main>
+  <script>
+    function mostraSezione(id) {
+      // Nasconde tutte le sezioni
+      document.querySelectorAll('main > section').forEach(sezione => {
+        sezione.classList.add('hidden');
+      });
+
+      // Mostra la sezione con l'ID corrispondente
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
