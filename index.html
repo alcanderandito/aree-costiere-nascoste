@@ -34,11 +34,9 @@
       0%   { letter-spacing: 1px; transform: scale(1); }
       100% { letter-spacing: 6px; transform: scale(1.05); }
     }
-    header p {
-      margin: 5px 0 0; font-size: 1em;
-    }
+    header p { margin: 5px 0 0; font-size: 1em; }
 
-    /* Nav Dinamico */
+    /* Nav Dinamico & Ripple */
     nav {
       position: sticky; top: 80px; z-index: 9;
       background: rgba(255,255,255,0.1);
@@ -58,9 +56,7 @@
       transform: scale(1.2);
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
-    nav button:hover {
-      background: #ffe1e8;
-    }
+    nav button:hover { background: #ffe1e8; }
     nav button .ripple {
       position: absolute; border-radius: 50%;
       background: rgba(255,255,255,0.7);
@@ -72,7 +68,7 @@
       to { transform: scale(4); opacity: 0; }
     }
 
-    /* Main & Sezioni */
+    /* Main & Sezioni Dinamiche */
     main {
       padding: 20px;
       scroll-behavior: smooth;
@@ -96,10 +92,14 @@
       margin-top: 0; font-size: 1.8em; color: #333;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
+    main section h3 {
+      margin: 15px 0 5px; font-size: 1.2em; color: #444;
+    }
     main section p, main section ul {
-      color: #555; line-height: 1.6; margin: 10px 0;
+      color: #555; line-height: 1.6; margin: 5px 0;
     }
     main section ul { padding-left: 20px; }
+    main section ul li { margin-bottom: 4px; }
   </style>
 </head>
 <body>
@@ -109,121 +109,84 @@
     <p>Scopri spiagge uniche e villaggi remoti sulla costa pacifica del Nicaragua.</p>
   </header>
 
-  <nav>
-    <button data-target="mechapa">Playa Mechapa</button>
-    <button data-target="jiquilillo">Jiquilillo</button>
-    <button data-target="aposentillo">Aposentillo</button>
-    <button data-target="miramar">Miramar</button>
-    <button data-target="eltransito">El Tránsito</button>
-    <button data-target="escameca">Escameca</button>
-  </nav>
-
-  <main>
-    <section id="mechapa">
-      <h2>Playa Mechapa</h2>
-      <p>Playa Mechapa è un gioiello nascosto tra palme e scogliere.</p>
-      <ul>
-        <li>Accesso: strada sterrata di 3 km</li>
-        <li>Servizi: bar sulla spiaggia, docce e parcheggio</li>
-        <li>Attività: surf, snorkeling, kayak</li>
-        <li>Tranquillità: poche persone e privacy garantita</li>
-      </ul>
-      <p>Le piscine naturali formate dalle onde offrono tramonti mozzafiato.</p>
-      <p>Consigli: porta acqua e snack, non ci sono negozi vicini.</p>
-    </section>
-
-    <section id="jiquilillo">
-      <h2>Jiquilillo</h2>
-      <p>Jiquilillo è perfetta per chi cerca onde e relax.</p>
-      <ul>
-        <li>Corsi di surf con istruttori locali</li>
-        <li>Alloggi eco-friendly e ostelli</li>
-        <li>Mercati serali con prodotti freschi</li>
-        <li>Villaggio di pescatori autentico</li>
-      </ul>
-      <p>Il lungomare è costellato di bancarelle e piccoli bar.</p>
-      <p>Ottimo per tramonti indimenticabili e foto da urlo.</p>
-    </section>
-
-    <section id="aposentillo">
-      <h2>Aposentillo</h2>
-      <p>Aposentillo offre spiagge selvagge e percorsi di trekking.</p>
-      <ul>
-        <li>Percorso trekking fino a cascate nascoste</li>
-        <li>Noleggio bici e tour guidati</li>
-        <li>Flora e fauna tropicale</li>
-        <li>Zona ideale per birdwatching</li>
-      </ul>
-      <p>Portate lo zaino e preparatevi all’avventura off-road.</p>
-      <p>Meglio avere uno zaino impermeabile per guadi fangosi.</p>
-    </section>
-
-    <section id="miramar">
-      <h2>Miramar</h2>
-      <p>Miramar è un mix di cultura, spiaggia e divertimento.</p>
-      <ul>
-        <li>Tour in barca al tramonto</li>
-        <li>Mercatini artigianali locali</li>
-        <li>Festival e eventi tradizionali</li>
-        <li>Ristoranti di pesce a km 0</li>
-      </ul>
-      <p>Adatto a famiglie con bambini e gruppi di amici.</p>
-      <p>Non perdere la festa annuale delle lanterne galleggianti.</p>
-    </section>
-
-    <section id="eltransito">
-      <h2>El Tránsito</h2>
-      <p>El Tránsito: spiagge tranquille e artigianato locale.</p>
-      <ul>
-        <li>Laboratori di ceramica e tessitura</li>
-        <li>Mercatini tradizionali e street food</li>
-        <li>Pontile panoramico al tramonto</li>
-        <li>Accesso facilitato con mezzi pubblici</li>
-      </ul>
-      <p>Scoprite storie e leggende raccontate dagli abitanti.</p>
-      <p>Perfetto per un weekend di relax culturale.</p>
-    </section>
-
-    <section id="escameca">
-      <h2>Escameca</h2>
-      <p>Escameca è il paradiso dello snorkeling e immersioni.</p>
-      <ul>
-        <li>Barriera corallina ricca di pesci colorati</li>
-        <li>Guide subacquee esperte</li>
-        <li>Attrezzatura a noleggio sul posto</li>
-        <li>Biodiversità marina protetta</li>
-      </ul>
-      <p>Porta la tua maschera e scopri grotte sottomarine.</p>
-      <p>Prezzo immersione singola: circa 30 USD.</p>
-    </section>
-  </main>
+  <nav></nav>
+  <main></main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const buttons = document.querySelectorAll('nav button');
+    // ↓↓↓ METTI QUI TUTTO IL TESTO DELLA TUA RICERCA ↓↓↓
+    const locationsData = [
+      {
+        id: 'mechapa',
+        title: 'Playa Mechapa',
+        description: 'Playa Mechapa è un gioiello nascosto tra palme e scogliere.',
+        lodging: 'Alloggi: Hotel Mechapa Beach, B&B Costa Verde.',
+        activities: 'Attività: surf, snorkeling, kayak e yoga al tramonto.',
+        distance: 'Distanza: 3 km dalla strada principale, 25 km da Managua.',
+        sources: ['https://esempio.com/mechapa', 'https://nicaragua.travel/mechapa']
+      },
+      {
+        id: 'jiquilillo',
+        title: 'Jiquilillo',
+        description: 'Jiquilillo è il paradiso dei surfisti e degli amanti della natura.',
+        lodging: 'Alloggi: Jiquilillo Surf Lodge, Cabinas El Pescador.',
+        activities: 'Attività: lezioni di surf, escursioni alle mangrovie.',
+        distance: 'Distanza: 40 km da Chinandega, accesso su strada asfaltata.',
+        sources: ['https://esempio.com/jiquilillo']
+      },
+      // … aggiungi gli altri 4 con lo stesso schema!
+    ];
 
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav  = document.querySelector('nav');
+      const main = document.querySelector('main');
+
+      // Costruisci i bottoni e le sezioni
+      locationsData.forEach(loc => {
+        // NAV BUTTON
+        const btn = document.createElement('button');
+        btn.dataset.target = loc.id;
+        btn.textContent = loc.title;
+        nav.appendChild(btn);
+
+        // SECTION CONTENT
+        const sec = document.createElement('section');
+        sec.id = loc.id;
+        sec.innerHTML = `
+          <h2>${loc.title}</h2>
+          <p>${loc.description}</p>
+          <h3>Alloggi</h3><p>${loc.lodging}</p>
+          <h3>Attività</h3><p>${loc.activities}</p>
+          <h3>Distanza</h3><p>${loc.distance}</p>
+          <h3>Fonti</h3>
+          <ul>${loc.sources.map(url => `<li><a href="${url}" target="_blank">${url}</a></li>`).join('')}</ul>
+        `;
+        main.appendChild(sec);
+      });
+
+      const buttons = Array.from(nav.querySelectorAll('button'));
       // Attiva la prima sezione di default
       buttons[0].classList.add('active');
       document.getElementById(buttons[0].dataset.target).classList.add('active');
 
+      // Gestione click + ripple + animazioni
       buttons.forEach(btn => {
         btn.addEventListener('click', e => {
-          // Ripple effect
+          // RIPPLE
           const circle = document.createElement('span');
           circle.className = 'ripple';
-          const rect = btn.getBoundingClientRect();
-          circle.style.width = circle.style.height = Math.max(rect.width, rect.height) + 'px';
-          circle.style.left = e.clientX - rect.left - rect.width/2 + 'px';
-          circle.style.top  = e.clientY - rect.top  - rect.height/2 + 'px';
+          const r = btn.getBoundingClientRect();
+          circle.style.width = circle.style.height = Math.max(r.width, r.height)+'px';
+          circle.style.left = e.clientX - r.left - r.width/2 + 'px';
+          circle.style.top  = e.clientY - r.top  - r.height/2 + 'px';
           btn.appendChild(circle);
-          setTimeout(() => circle.remove(), 600);
+          setTimeout(()=> circle.remove(), 600);
 
-          // Toggle active button
-          buttons.forEach(b => b.classList.remove('active'));
+          // Toggle active sui bottoni
+          buttons.forEach(b=>b.classList.remove('active'));
           btn.classList.add('active');
 
           // Toggle sezioni
-          document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+          document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
           const target = document.getElementById(btn.dataset.target);
           target.classList.add('active');
           target.scrollIntoView({ behavior: 'smooth' });
