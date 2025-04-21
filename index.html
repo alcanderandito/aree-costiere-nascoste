@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aree Costiere Nascoste</title>
   <style>
-    /* Corpo & Sfondo “Grigio Cool” */
+    /* ── Hide-on-scroll ── */
+    header, nav {
+      transition: transform .3s ease;
+    }
+    header.hide, nav.hide {
+      transform: translateY(-100%);
+    }
+
+    /* ── Corpo & Sfondo “Grigio Cool” ── */
     body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
@@ -19,7 +27,7 @@
       100% { background: linear-gradient(135deg, #a0a0a0, #808080); }
     }
 
-    /* Header Sticky & Titolo Statico */
+    /* ── Header Sticky & Titolo Statico ── */
     header {
       position: sticky; top: 0; z-index: 10;
       background: rgba(0,0,0,0.6);
@@ -37,7 +45,7 @@
       font-size: 1em;
     }
 
-    /* Nav & Pulsanti XXL‐Tondi */
+    /* ── Nav & Pulsanti XXL‑Tondi ── */
     nav {
       position: sticky; top: 80px; z-index: 9;
       background: rgba(255,255,255,0.1);
@@ -78,7 +86,7 @@
       to { transform: scale(4); opacity: 0; }
     }
 
-    /* Main & Sezioni */
+    /* ── Main & Sezioni ── */
     main {
       padding: 20px;
       scroll-behavior: smooth;
@@ -133,6 +141,7 @@
   <main></main>
 
   <script>
+    // ── Ricerca completa per ogni sezione ──
     const research = {
       mechapa: `
         <h3>Ambiente e Natura</h3>
@@ -162,7 +171,7 @@
         </ul>
 
         <h3>Sicurezza e Salute</h3>
-        <p>Zona tranquilla e sicura; attenzione alle correnti di risacca. Portare torcia, kit di primo soccorso, protezione solare alta e repellente. Ospedale più vicino a Chinandega (~1.5 h).</p>
+        <p>Zona tranquilla e sicura; attenzione alle correnti di risacca. Portare torcia, kit di pronto soccorso, protezione solare alta e repellente. Ospedale più vicino a Chinandega (~1.5 h).</p>
 
         <h3>Note Culturali e Storiche</h3>
         <p>Villaggio dedito a pesca e agricoltura di sussistenza. Vicina la Basilica coloniale di El Viejo (XVII sec.), e leggende di contrabbandieri e basi militari abbandonate.</p>
@@ -172,7 +181,7 @@
       `,
       jiquilillo: `
         <h3>Ambiente e Natura</h3>
-        <p>Jiquilillo è un arenile selvaggio di sabbia vulcanica grigia, circondato da vulcani come San Cristóbal e Cosigüina. Alle spalle boschetti tropicali e riserva di mangrovie di Padre Ramos, con clima caldo e soleggiato quasi tutto l’anno.</p>
+        <p>Jiquilillo è un lungo arenile selvaggio di sabbia vulcanica grigia, incorniciato da palme e capanne di pescatori. Verso est si scorgono i vulcani San Cristóbal e Cosigüina. Alle spalle, boschetti tropicali e riserva di Padre Ramos.</p>
 
         <h3>Accessibilità</h3>
         <p>40–50 min da Chinandega su asfalto + sterrato. Autobus locali dal mercato municipale (1.5 h), taxi o navette organizzate dagli ostelli.</p>
@@ -190,173 +199,174 @@
 
         <h3>Attività ed Esperienze Uniche</h3>
         <ul>
-          <li>Surf: onde per principianti e “The Boom” per esperti (10 min in bici).</li>
-          <li>Kayak fra le mangrovie con avvistamento di uccelli e tartarughe.</li>
-          <li>Volontariato in progetti locali di educazione e riciclaggio.</li>
-          <li>Pesca tradizionale e cena di mare a lume di candela.</li>
-          <li>Escursioni guidate al vulcano Cosigüina.</li>
+          <li>Surf: onde morbide per principianti, “The Boom” per esperti (10 min in bici).</li>
+          <li>Kayak tra mangrovie con avvistamento uccelli e tartarughe.</li>
+          <li>Volontariato in progetti locali di educazione ambientale.</li>
+          <li>Pesca tradizionale e cena di pesce fresco.</li>
+          <li>Escursioni al vulcano Cosigüina.</li>
           <li>Rilascio tartarughe marine (set‑nov) con ONG locali.</li>
         </ul>
 
         <h3>Sicurezza e Salute</h3>
-        <p>Basso tasso di criminalità; attenzione alle correnti in “The Boom”. Protezione solare, repellenti e kit di pronto soccorso consigliati. Ospedale a Chinandega (~1 h).</p>
+        <p>Basso tasso di criminalità; attenzione correnti in “The Boom”. Protezione solare, repellenti e kit di primo soccorso consigliati. Ospedale a Chinandega (~1 h).</p>
 
         <h3>Note Culturali e Storiche</h3>
-        <p>Turismo comunitario: Rancho Esperanza sostiene biblioteca e centro giovani. Piccola chiesa cattolica con messa domenicale aperta ai visitatori.</p>
+        <p>Turismo comunitario: Rancho Esperanza finanzia biblioteca e centro giovani. Messa domenicale aperta ai turisti.</p>
 
         <h3>Fonti</h3>
-        <p>Blog di surfisti, VisitaNicaragua, forum di viaggi e siti ufficiali degli ostelli.</p>
+        <p>Blog di surfisti, VisitaNicaragua, forum di viaggi e siti ufficiali ostelli.</p>
       `,
       aposentillo: `
         <h3>Ambiente e Natura</h3>
-        <p>Aposentillo (Playa Santa María del Mar): mezzaluna di sabbia dorata, affioramenti rocciosi e palme fino all’acqua. Onde gentle in stagione secca e un beach break perfetto per longboard.</p>
+        <p>Aposentillo (Playa Santa María del Mar): mezzaluna di sabbia dorata, affioramenti rocciosi e palme fino all’acqua. Onde gentle in stagione secca e “beach break” perfetto per longboard.</p>
 
         <h3>Accessibilità</h3>
-        <p>40 min da Chinandega su sterrato; auto normale in secca, 4×4 in pioggia. Autobus fino all’incrocio + mototaxi/autostop per gli ultimi 3 km; transfer privati disponibili.</p>
+        <p>40 min da Chinandega su sterrato; auto normalissima in secca, 4×4 in pioggia. Autobus fino all’incrocio + mototaxi/autostop per ultimi 3 km; transfer privati disponibili.</p>
 
         <h3>Atmosfera</h3>
-        <p>Villaggio surfista e tranquillo, con amache fronte mare, yoga al sorgere del sole e falò comuni sulla spiaggia.</p>
+        <p>Villaggio surfista e tranquillo, con amache fronte mare, yoga all’alba e falò comuni sulla spiaggia.</p>
 
         <h3>Alloggi (piccola scala)</h3>
         <ul>
-          <li><strong>Thunderbomb Surf Camp</strong> – Surf camp boutique, piscina e aree comuni; pacchetti inclusivi 150–200 USD/notte.</li>
-          <li><strong>Tapas & Surf – Tropical Paradise</strong> – Boutique hotel con tapas spagnole; 80–100 USD/notte.</li>
-          <li><strong>Amaru Wellness Resort</strong> – Resort olistico su scogliera con yoga deck e spa; da 150 USD/notte.</li>
-          <li><strong>Chancletas Beach Resort</strong> – Storico surf lodge con piscina; 70–90 USD/notte.</li>
-          <li><strong>Coco Loco Eco-Resort</strong> – Surf & Yoga retreat, volontariato; pacchetti settimanali ~1400 USD/persona, singole notti ~100 USD.</li>
-          <li><strong>Homestay & B&B</strong> – Casa de Noah, La Casita de Don Ramón; ~15 USD/persona con bagno condiviso.</li>
+          <li><strong>Thunderbomb Surf Camp</strong> – Surf camp boutique fronte oceano con piscina. Pacchetti tutto incluso 150–200 USD/notte.</li>
+          <li><strong>Tapas & Surf – Tropical Paradise</strong> – Boutique hotel con tapas di pesce. 80–100 USD/notte.</li>
+          <li><strong>Amaru Wellness Resort</strong> – Resort olistico su scogliera con yoga deck e spa. Da 150 USD/notte.</li>
+          <li><strong>Chancletas Beach Resort</strong> – Surf lodge storico. 70–90 USD/notte.</li>
+          <li><strong>Coco Loco Eco-Resort</strong> – Surf & Yoga retreat, volontariato. Pacchetti settimanali ~1400 USD/persona, notti singole ~100 USD.</li>
+          <li><strong>Homestay & B&B</strong> – Casa de Noah, La Casita de Don Ramón; ~15 USD/persona.</li>
         </ul>
 
         <h3>Attività ed Esperienze Uniche</h3>
         <ul>
-          <li>Surf per tutti i livelli e boat trips verso spot segreti.</li>
-          <li>Paddleboard e snorkeling in acque calme.</li>
-          <li>Horseback riding sul bagnasciuga al tramonto.</li>
-          <li>Yoga e massaggi all’aperto con vista mare.</li>
-          <li>Volontariato comunitario e progetti di protezione ambientale.</li>
-          <li>Birdwatching nella zona del Río Aserradores.</li>
-          <li>Escursioni al vulcano Cosigüina e visita al Museo Chorotega‑Nicarao.</li>
+          <li>Surf per tutti i livelli, boat trips per spot segreti.</li>
+          <li>Paddleboard & snorkeling.</li>
+          <li>Horseback riding al tramonto.</li>
+          <li>Yoga e massaggi fronte mare.</li>
+          <li>Volontariato comunitario.</li>
+          <li>Birdwatching al Río Aserradores.</li>
+          <li>Trekking sul Cosigüina e Museo Chorotega‑Nicarao.</li>
         </ul>
 
         <h3>Sicurezza e Salute</h3>
-        <p>Zona sicura; attenzione correnti vicino alla foce. Kit di pronto soccorso, repellenti e scarpette consigliati. Clinica a El Viejo, ospedale a Chinandega (~1 h).</p>
+        <p>Zona sicura; attenzione correnti vicino alla foce. Kit di primo soccorso, repellente e scarpette consigliati. Clinica a El Viejo, ospedale a Chinandega (~1 h).</p>
 
         <h3>Note Culturali e Storiche</h3>
-        <p>Pesca con chinchorro, feria settimanale, ricostruzione post‑Mitch e progetti Surfing Nahua di turismo sostenibile.</p>
+        <p>Pesca con chinchorro, feria settimanale, ricostruzione post‑Mitch e progetti Surfing Nahua.</p>
 
         <h3>Fonti</h3>
         <p>Guide ufficiali, VisitaNicaragua, blog di surf e testimonianze locali.</p>
       `,
       miramar: `
         <h3>Ambiente e Natura</h3>
-        <p>Miramar (Leon): scogliere vulcaniche, sabbia nera e surf break “Punta Miramar”. Venti offshore costanti rendono le onde pulite ~300 giorni/anno. Estuario del Río Tamarindo con avifauna e avvistamenti di delfini.</p>
+        <p>Miramar (León): scogliere vulcaniche e sabbia nera, surf break “Punta Miramar” e piscine naturali in bassa marea. Venti offshore costanti (~300 gg/anno). Estuario del Río Tamarindo con delfini e uccelli migratori.</p>
 
         <h3>Accessibilità</h3>
-        <p>70 km da Managua (1.5 h), 40 km da León (1 h); deviazione da Nagarote, ultimi 10 km misti asfaltati/ster­rati. Minibus Managua→Nagarote + bus rurale→Miramar o taxi (~25 USD).</p>
+        <p>70 km da Managua (1.5 h), 40 km da León (1 h); deviazione da Nagarote, ultimi 10 km misti asfaltati/ster­rati. Minibus Managua→Nagarote + rurale→Miramar o taxi (~25 USD).</p>
 
         <h3>Atmosfera</h3>
-        <p>Villaggio di pescatori integrato con surfisti internazionali; ritmo lento e pace assoluta dopo il tramonto.</p>
+        <p>Villaggio di pescatori integrato con surfisti internazionali; ritmo lento e pace dopo il tramonto.</p>
 
         <h3>Alloggi (piccola scala)</h3>
         <ul>
-          <li><strong>Miramar Surf Camp</strong> – 13 camere, Wi‑Fi, piscina e pacchetti surf. Dormitorio 15 USD, camere private 50–70 USD, bungalow fronte mare 145 USD.</li>
-          <li><strong>Sirena del Mar</strong> – Guesthouse economica con camere spartane 10 USD/persona.</li>
-          <li><strong>Puerto Sandino Surf House</strong> – Surf‑house con 4 stanze 20–30 USD e boat trips per Puerto Sandino.</li>
+          <li><strong>Miramar Surf Camp</strong> – 13 camere, Wi‑Fi & piscina; dormitori 15 USD, private 50–70 USD, bungalow 145 USD/notte.</li>
+          <li><strong>Sirena del Mar</strong> – Stanze economiche 10 USD/persona.</li>
+          <li><strong>Puerto Sandino Surf House</strong> – Surf‑house 20–30 USD, boat trips.</li>
         </ul>
 
         <h3>Attività ed Esperienze Uniche</h3>
         <ul>
-          <li>Surf: Punta Miramar, Shifty’s, Shacks, freight trains a Puerto Sandino.</li>
-          <li>Pesca d’altura e tour panoramici in panga.</li>
-          <li>Snorkeling in piscine di roccia.</li>
-          <li>Escursioni a León, sandboarding al Cerro Negro e trekking al Telica.</li>
-          <li>Volontariato e pulizia spiagge con surfcamp.</li>
+          <li>Surf: Punta Miramar, Shifty’s, Shacks, Puerto Sandino.</li>
+          <li>Pesca d’altura e tour in panga.</li>
+          <li>Snorkeling in piscine rocciose.</li>
+          <li>Escursioni a León, Cerro Negro & Telica.</li>
+          <li>Volontariato & beach‑cleaning.</li>
         </ul>
 
         <h3>Sicurezza e Salute</h3>
-        <p>Bassa criminalità; attenzione reef rocciosi e correnti. Ospedale a León (~1 h). Repellenti e lycra consigliati.</p>
+        <p>Bassa criminalità; attenzione reef e correnti. Ospedale a León (~1 h). Repellenti & lycra consigliati.</p>
 
         <h3>Note Culturali e Storiche</h3>
-        <p>Storia sandinista a Puerto Sandino, quesillo di Nagarote, patrono San Pedro e iniziative eco‑surf.</p>
+        <p>Storia sandinista a Puerto Sandino, quesillo di Nagarote, patrono San Pedro e progetti eco‑surf.</p>
 
         <h3>Fonti</h3>
-        <p>Forum di surf, VisitaNicaragua, guide locali e testimonianze.</p>
+        <p>Forum surf, VisitaNicaragua e testimonianze locali.</p>
       `,
       eltransito: `
         <h3>Ambiente e Natura</h3>
-        <p>El Tránsito (Nagarote): spiaggia vulcanica, piscine naturali tra rocce e dry forest. Vari break per surfisti e avvistamenti di pellicani e balene.</p>
+        <p>El Tránsito (Nagarote): spiaggia vulcanica & dry forest, piscine naturali, vari break per surfisti, pellicani e balene stagionali.</p> 
 
         <h3>Accessibilità</h3>
-        <p>60 km da Managua, 50 km da León; strada principale + 15 km sterrato. Autobus da Nagarote (2 corse/giorno) o taxi (~30–40 USD). Village a piedi.</p>
+        <p>60 km da Managua, 50 km da León; strada principale + 15 km sterrato. Autobus da Nagarote (2 corse/dì) o taxi 30–40 USD. Village a piedi.</p>
 
         <h3>Atmosfera</h3>
-        <p>MIX tra villaggio tradizionale e scena boho-surfista: yoga, jam session e falò stellati.</p>
+        <p>MIX locale & boho-surfista: yoga, jam session, falò stellati, skatepark.</p>
 
         <h3>Alloggi (piccola scala)</h3>
         <ul>
-          <li><strong>Free Spirit Hostel</strong> – Dormitorio 12 USD, private 30 USD, piscina, cena comunitaria.</li>
-          <li><strong>SOLID Surf Camp & Hostel</strong> – Dormitori 15 USD e pacchetti surf+volontariato.</li>
-          <li><strong>Palapa Hostel</strong> – Eco-permaculture lodge 10–15 USD.</li>
-          <li><strong>Nimbu Beach Hotel</strong> – Private climatizzate 40–50 USD.</li>
-          <li><strong>Backpackers Inn</strong> – B&B familiare 25 USD (colazione inclusa).</li>
+          <li><strong>Free Spirit Hostel</strong> – Dormitori 12 USD, camere 30 USD, piscina & cena comunitaria.</li>
+          <li><strong>SOLID Surf Camp</strong> – Dormitori 15 USD + pacchetti surf+volontariato.</li>
+          <li><strong>Palapa Hostel</strong> – Eco-lodge 10–15 USD.</li>
+          <li><strong>Nimbu Beach Hotel</strong> – Private 40–50 USD.</li>
+          <li><strong>Backpackers Inn</strong> – B&B familiare 25 USD (con colazione).</li>
         </ul>
 
         <h3>Attività ed Esperienze Uniche</h3>
         <ul>
-          <li>Surf su “La Punta” e beach-break; escursioni a Dos Ahogados e Puerto Sandino.</li>
-          <li>Yoga e benessere fronte mare.</li>
-          <li>Volontariato e beach-cleaning.</li>
-          <li>Escursioni vulcaniche e visite culturali a León.</li>
+          <li>Surf su “La Punta” & beach-break; trip a Dos Ahogados & Puerto Sandino.</li>
+          <li>Yoga & benessere fronte mare.</li>
+          <li>Volontariato & pulizia spiagge.</li>
+          <li>Escursioni vulcaniche & culturali.</li>
         </ul>
 
         <h3>Sicurezza e Salute</h3>
-        <p>Kit pronto soccorso disponibile; ospedale a León (~1 h). Repellenti e scarpette consigliate.</p>
+        <p>Kit pronto soccorso; ospedale a León (~1 h). Repellenti & scarpette consigliate.</p>
 
         <h3>Note Culturali e Storiche</h3>
-        <p>Skatepark comunitario, processioni religiose e forte spirito di solidarietà.</p>
+        <p>Skatepark, processioni religiose, spirito solidale.</p>
 
         <h3>Fonti</h3>
-        <p>Guide locali, VisitaNicaragua e testimonianze dei gestori.</p>
+        <p>Guide locali, VisitaNicaragua & testimonianze gestori.</p>
       `,
       escameca: `
         <h3>Ambiente e Natura</h3>
-        <p>Playa Escameca & El Ostional: sabbia dorata, promontori rocciosi, foresta secca e mangrovie. Riserva La Flor – area chiave per la nidificazione di tartarughe olivacee (lug‑dic). Iguane e scimmie urlatrici nelle chiome.</p>
+        <p>Playa Escameca & El Ostional: sabbia dorata, foresta secca, mangrovie; Riserva La Flor – sito di nidificazione tartarughe (lug‑dic); fauna selvatica.</p>
 
         <h3>Accessibilità</h3>
-        <p>25–30 km da San Juan del Sur; sterrato con tratti fangosi (4×4 consigliato) o boat taxi. Transfer privati/eco-lodge (~40–50 USD). Nessun servizio pubblico.</p>
+        <p>25–30 km da San Juan del Sur; sterrato fangoso (4×4) o boat taxi. Transfer privati/eco-lodge 40–50 USD; zero servizi pubblici.</p>
 
         <h3>Atmosfera</h3>
-        <p>Borgo di pescatori ultrariservato, isolamento totale e digital detox. Cieli stellati e atmosfera meditativa.</p>
+        <p>Borgo isolato, digital detox, cieli stellati, ritmo lento e meditativo.</p>
 
         <h3>Alloggi (piccola scala)</h3>
         <ul>
-          <li><strong>Manta Raya Hospedaje</strong> – 4 camere, veranda, bagno privato. 30–40 USD/notte. WhatsApp +505 8353 7091.</li>
-          <li><strong>Costa Dulce Eco-Lodge & Retreat</strong> – 11 bungalow rustico-chic, ristorante farm-to-table e yoga deck fronte mare. 150–250 USD/notte (pensione completa).</li>
-          <li><strong>La Veranera</strong> – B&B Playa El Coco (7 km), piscina e villa coloniale. 80–100 USD/notte.</li>
+          <li><strong>Manta Raya Hospedaje</strong> – 4 camere, veranda, bagno privato; 30–40 USD/notte. WhatsApp +505 8353 7091.</li>
+          <li><strong>Costa Dulce Eco-Lodge & Retreat</strong> – 11 bungalow rustico-chic, ristorante farm-to-table, yoga deck; 150–250 USD/notte (pensione completa).</li>
+          <li><strong>La Veranera</strong> – B&B Playa El Coco (7 km), piscina; 80–100 USD/notte.</li>
           <li>Camping selvaggio (permessi richiesti).</li>
         </ul>
 
         <h3>Attività ed Esperienze Uniche</h3>
         <ul>
-          <li>Arribadas e hatching di tartarughe con ranger (ingresso + guida ~15 USD).</li>
-          <li>Surf e snorkeling su reef semi-deserti.</li>
-          <li>Pesca d’altura con i pescatori locali.</li>
-          <li>Trekking costiero Ostional→La Flor con avvistamento fauna.</li>
-          <li>Yoga, meditazione e massaggi sulla piattaforma vista mare.</li>
-          <li>Volontariato notturno per protezione nidi di tartaruga.</li>
+          <li>Arribadas & hatching tartarughe con guide (~15 USD).</li>
+          <li>Surf & snorkeling su reef semi‑deserti.</li>
+          <li>Pesca d’altura con pescatori locali.</li>
+          <li>Trekking Ostional→La Flor, avvistamento fauna.</li>
+          <li>Yoga, meditazione & massaggi fronte mare.</li>
+          <li>Volontariato notturno per protezione nidi.</li>
         </ul>
 
         <h3>Sicurezza e Salute</h3>
-        <p>Comunità protettiva; correnti in La Flor; ospedali a San Juan del Sur (1 h) e Rivas (1.5 h). Repellenti e scarpette consigliate; no guida di notte.</p>
+        <p>Comunità protettiva; correnti in La Flor; ospedali a San Juan del Sur (1 h) & Rivas (1.5 h). Repellenti & scarpette consigliati; no guida notturna.</p>
 
         <h3>Note Culturali e Storiche</h3>
-        <p>Transizione da raccolta di uova a conservazione, festa di San Pedro e turismo comunitario in sviluppo.</p>
+        <p>Transizione da raccolta uova a conservazione; festa patronale; turismo comunitario emergente.</p>
 
         <h3>Fonti</h3>
-        <p>Riserva La Flor, VisitaNicaragua, eco-tourism blogs e testimonianze ranger.</p>
+        <p>Riserva La Flor, VisitaNicaragua, eco‑tourism blogs & ranger testimonianze.</p>
       `
     };
 
+    // ── Mappa ID/Titoli per nav ──
     const sections = [
       { id: 'mechapa',     title: 'Playa Mechapa' },
       { id: 'jiquilillo',  title: 'Jiquilillo' },
@@ -367,9 +377,11 @@
     ];
 
     document.addEventListener('DOMContentLoaded', () => {
-      const nav  = document.querySelector('nav');
-      const main = document.querySelector('main');
+      const header  = document.querySelector('header');
+      const nav     = document.querySelector('nav');
+      const main    = document.querySelector('main');
 
+      // Genera pulsanti e sezioni
       sections.forEach(secInfo => {
         const btn = document.createElement('button');
         btn.dataset.target = secInfo.id;
@@ -386,25 +398,43 @@
       buttons[0].classList.add('active');
       document.getElementById(buttons[0].dataset.target).classList.add('active');
 
+      // Handler click ripple + toggle active + scrollIntoView
       buttons.forEach(btn => {
         btn.addEventListener('click', e => {
+          // ripple effect
           const circle = document.createElement('span');
           circle.className = 'ripple';
           const r = btn.getBoundingClientRect();
-          circle.style.width  = circle.style.height = Math.max(r.width, r.height)+'px';
-          circle.style.left   = e.clientX - r.left - r.width/2+'px';
-          circle.style.top    = e.clientY - r.top  - r.height/2+'px';
+          circle.style.width  = circle.style.height = Math.max(r.width, r.height) + 'px';
+          circle.style.left   = e.clientX - r.left - r.width/2 + 'px';
+          circle.style.top    = e.clientY - r.top  - r.height/2 + 'px';
           btn.appendChild(circle);
-          setTimeout(()=>circle.remove(),600);
+          setTimeout(() => circle.remove(), 600);
 
-          buttons.forEach(b=>b.classList.remove('active'));
+          // toggle active button
+          buttons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
 
-          document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+          // toggle sections
+          document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
           const tgt = document.getElementById(btn.dataset.target);
           tgt.classList.add('active');
-          tgt.scrollIntoView({ behavior:'smooth' });
+          tgt.scrollIntoView({ behavior: 'smooth' });
         });
+      });
+
+      // hide-on-scroll header & nav
+      let lastY = window.pageYOffset;
+      window.addEventListener('scroll', () => {
+        const y = window.pageYOffset;
+        if (y > lastY + 5) {
+          header.classList.add('hide');
+          nav.classList.add('hide');
+        } else if (y < lastY - 5) {
+          header.classList.remove('hide');
+          nav.classList.remove('hide');
+        }
+        lastY = y;
       });
     });
   </script>
